@@ -121,10 +121,10 @@ class PDF_Rotate extends Fpdi
 
 // $currentFile: file cần in mờ
 $currentFile = 'pdf-test.pdf';
-
 // text còn in mờ
 $text = 'Newwaytech';
-
+// opacity
+$opacity = 0.3;
 
 // initiate FPDI
 $pdf = new PDF_Rotate();
@@ -138,11 +138,12 @@ for($i = 1; $i <= $pagecount; $i++){
 
 // now write some text above the imported page
     $pdf->SetFont('Helvetica');
-    $pdf->SetTextColor(255, 0, 0);
+    $pdf->SetTextColor(0, 0, 0);
     $pdf->SetXY(30, 45);
     $pdf->SetFont('Helvetica', 'B', 100);
-    $pdf->SetAlpha(0.3);
+    $pdf->SetAlpha($opacity);
     $pdf->RotatedText(30, 200, $text, 45);
+
 }
 $pdf->Output();
  ?>
